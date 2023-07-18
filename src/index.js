@@ -22,6 +22,7 @@ function Header() {
 function Menu() {
   return (
     <main className="menu">
+      <h2>our Menu</h2>
       <Pizza
         name="Pizza Spinaci"
         ingredients="Tomato, mozarella, ham, aragula,and burrata cheese"
@@ -49,10 +50,10 @@ function Footer() {
 //components
 function Pizza(props) {
   return (
-    <div>
+    <div className="pizza">
       <img src={props.photoName} alt={props.name} />
       <div>
-        <h2>{props.name}</h2>
+        <h3>{props.name}</h3>
         <p>{props.ingredients}</p>
         <span>{props.price}</span>
       </div>
