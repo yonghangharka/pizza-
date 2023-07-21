@@ -68,7 +68,6 @@ function Menu() {
   const pizzas = pizzaData;
   // const pizzas = [];
   const numPizzas = pizzas.length;
-  // console.log(numPizzas);
 
   return (
     <main className="menu">
@@ -97,10 +96,7 @@ function Footer() {
   return (
     <footer className="footer">
       {isOpen ? (
-        <div className="order">
-          <p>We're open until {closeHour}:00. Come visit us or Order online.</p>
-          <button className="btn">Order</button>
-        </div>
+        <Order closeHour={closeHour} openHour={openHour} />
       ) : (
         <p>
           We're happy to welcome between {openHour}:00 and {closeHour}:00
@@ -109,15 +105,27 @@ function Footer() {
     </footer>
   );
 }
+
+function Order({ openHour, closeHour }) {
+  return (
+    <div className="order">
+      <p>
+        We're open from {openHour}:00 until {closeHour}:00. Come visit us or
+        Order online.
+      </p>
+      <button className="btn">Order</button>
+    </div>
+  );
+}
 //components
-function Pizza(props) {
+function Pizza({ pizzaObj }) {
   return (
     <li className="pizza">
-      <img src={props.pizzaObj.photoName} alt={props.name} />
+      <img src={pizzaObj.photoName} alt={pizzaObj.name} />
       <div>
-        <h3>{props.pizzaObj.name}</h3>
-        <p>{props.pizzaObj.ingredients}</p>
-        <span>{props.pizzaObj.price}</span>
+        <h3>{pizzaObj.name}</h3>
+        <p>{pizzaObj.ingredients}</p>
+        <span>{pizzaObj.price}</span>
       </div>
     </li>
   );
