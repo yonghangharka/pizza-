@@ -73,14 +73,6 @@ function Menu() {
   return (
     <main className="menu">
       <h2>our Menu</h2>
-<<<<<<< HEAD
-      {numPizzas > 0 ? ( //ternary operator
-        <ul className="pizzas">
-          {pizzas.map((pizza) => (
-            <Pizza pizzaObj={pizza} key={pizza.name} />
-          ))}
-        </ul>
-=======
 
       {numPizzas > 0 ? (
         <>
@@ -94,7 +86,6 @@ function Menu() {
             ))}
           </ul>
         </>
->>>>>>> pizza-b
       ) : (
         <p>We are updating our menu.</p>
       )}
