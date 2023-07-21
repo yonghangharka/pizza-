@@ -69,9 +69,11 @@ function Menu() {
   // const pizzas = [];
   const numPizzas = pizzas.length;
   // console.log(numPizzas);
+
   return (
     <main className="menu">
       <h2>our Menu</h2>
+
       {numPizzas > 0 ? ( //ternary operator
         <ul className="pizzas">
           {pizzas.map((pizza) => (
@@ -81,13 +83,6 @@ function Menu() {
       ) : (
         <p>We are updating our menu.</p>
       )}
-
-      {/* <Pizza
-        name="Pizza Spinaci"
-        ingredients="Tomato, mozarella, ham, aragula,and burrata cheese"
-        photoName="pizzas/spinaci.jpg"
-        price={10}
-      /> */}
     </main>
   );
 }
@@ -97,7 +92,7 @@ function Footer() {
   const openHour = 12;
   const closeHour = 20;
   const isOpen = hour >= openHour && hour <= closeHour;
-  console.log(isOpen);
+  // console.log(isOpen);
 
   return (
     <footer className="footer">
