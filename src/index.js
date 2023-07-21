@@ -73,16 +73,53 @@ function Menu() {
     <main className="menu">
       <h2>our Menu</h2>
 
-      {numPizzas > 0 ? ( //ternary operator
-        <ul className="pizzas">
-          {pizzas.map((pizza) => (
-            <Pizza pizzaObj={pizza} key={pizza.name} />
-          ))}
-        </ul>
+      {numPizzas > 0 ? (
+        <>
+          <p>
+            Authentic Italian cuisine. 6 creative dishes to choose from. All
+            from our stone oven, all organic, all delicious.
+          </p>
+          <ul className="pizzas">
+            {pizzas.map((pizza) => (
+              <Pizza pizzaObj={pizza} key={pizza.name} />
+            ))}
+          </ul>
+        </>
       ) : (
         <p>We are updating our menu.</p>
       )}
+
+      {/* <Pizza
+        name="Pizza Spinaci"
+        ingredients="Tomato, mozarella, spinach, and ricotta cheese"
+        photoName="pizzas/spinaci.jpg"
+        price={10}
+      />
+      <Pizza
+        name="Pizza Funghi"
+        ingredients="Tomato, mushrooms"
+        price={12}
+        photoName="pizzas/funghi.jpg"
+      /> */}
     </main>
+  );
+}
+
+//components
+function Pizza({ pizzaObj }) {
+  // console.log(pizzaObj);
+
+  //if(pizzaObj.soldout) return null;
+
+  return (
+    <li className={`pizza ${pizzaObj.soldOut ? "sold-out" : ""}`}>
+      <img src={pizzaObj.photoName} alt={pizzaObj.name} />
+      <div>
+        <h3>{pizzaObj.name}</h3>
+        <p>{pizzaObj.ingredients}</p>
+        <span>{pizzaObj.soldOut ? "SOLD OUT" : pizzaObj.price}</span>
+      </div>
+    </li>
   );
 }
 
@@ -92,6 +129,8 @@ function Footer() {
   const closeHour = 20;
   const isOpen = hour >= openHour && hour <= closeHour;
   // console.log(isOpen);
+
+  // if (!isOpen) return <p>CLOSED</p>;
 
   return (
     <footer className="footer">
@@ -117,19 +156,6 @@ function Order({ openHour, closeHour }) {
     </div>
   );
 }
-//components
-function Pizza({ pizzaObj }) {
-  return (
-    <li className="pizza">
-      <img src={pizzaObj.photoName} alt={pizzaObj.name} />
-      <div>
-        <h3>{pizzaObj.name}</h3>
-        <p>{pizzaObj.ingredients}</p>
-        <span>{pizzaObj.price}</span>
-      </div>
-    </li>
-  );
-}
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -137,3 +163,6 @@ root.render(
     <App />
   </React.StrictMode>
 );
+
+// React before 18
+// ReactDOM.render(<App />, document.getElementById("root"));
